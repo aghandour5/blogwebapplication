@@ -1,0 +1,12 @@
+<%- include ("partials/homeheader.ejs") %>
+
+<% if (validate === "valid"){ %>
+  <h2 class="welcome-message">Welcome to the Blog Web Application, <%= firstName %> </h2>
+  <a href="blog.html" class="view-blogs-link">View Blogs</a>
+ <% } else if (validate === "success") { %>
+  <h2 class="success-message">Sign up successful! You can now sign in.</h2>
+    <a href="index.html" class="signin-link">Sign In</a>
+    <% } else { %>
+    <h2 class="error-message">Invalid credentials. Please try again.</h2>
+    <a href="index.html" class="signin-link">Sign In</a>
+    <% } %>

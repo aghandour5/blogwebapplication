@@ -1,0 +1,64 @@
+<%- include ("partials/homeheader.ejs") %>
+    <!--------------------------- Form Box --------------------------->
+
+    <div class="form-container">
+    <div class="form-box">
+
+        <!--------------------------- Login Box --------------------------->
+
+        <div class="login-container" id="login">
+            <form action="/signin" method="POST">
+            <div class="top">
+                <span>Have an account? <a href="#" onclick="register()">Sign Up</a></span>
+                <header>Login</header>
+            </div>
+            <div class="input-box">
+                <input type="email" class="input-field editing" placeholder="Email" name="email" required>
+                <i class="bx bx-user"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" class="input-field editing" placeholder="Password" name="password" required>
+                <i class="bx bx-lock-alt"></i>
+            </div>
+            <div class="input-box">
+                <input type="submit" class="submit" value="Sign In">
+            </div>
+            </form>
+        </div>
+
+        <!--------------------------- Register Box --------------------------->
+        <div class="register-container" id="register">
+
+            <div class="top">
+                <span> Don't have an account? <a href="#" onclick="login()">Login</a></span>
+                <header>Sign Up</header>
+            </div>
+            <form action="/signup" method="POST">
+              <div class="two-forms">
+                <div class="input-box">
+                  <input type="firstName" class="input-field" name="firstName" placeholder="Firstname" required>
+                  <i class="bx bx-user"></i>
+                </div>
+                <div class="input-box">
+                  <input type="lastName" class="input-field" name="lastName" placeholder="Lastname" required>
+                  <i class="bx bx-user"></i>
+                </div>
+              </div>
+              <div class="input-box">
+                <input type="email" class="input-field editing" name="email" placeholder="Email" required>
+                <i class="bx bx-envelope"></i>
+              </div>
+              <div class="input-box">
+                <input type="password" class="input-field editing" name="password" placeholder="Password" required>
+                <i class="bx bx-lock-alt"></i>
+              </div>
+              <div class="input-box">
+                <input type="submit" class="submit" value="Submit">
+              </div>
+            </form>
+
+    </div>
+  </div>
+</div>
+<script src="/js/index.js" defer></script>
+<%- include("partials/footer.ejs") %>
