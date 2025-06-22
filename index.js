@@ -11,6 +11,18 @@ const port = 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+app.use((req, res, next) => {
+  // Check if the request is for the root and from a mobile device
+  if (
+    req.path === "/index.html" &&
+    /mobile|android|iphone|ipad|phone/i.test(req.headers["user-agent"])
+  ) {
+    return res.redirect("/login");
+  }
+  next();
+});
+
+
 app.get("/", (req, res) => {
   res.render("index.ejs");
 });
@@ -34,6 +46,16 @@ app.get("/contact.html", (req, res) => {
 app.get("/welcome", (req, res) => {
   res.render("welcome.ejs");
 });
+
+app.get("/login", (req, res) => {
+  res.render("login.ejs");
+});
+
+app.get("/signup", (req, res) => {
+  res.render("signup.ejs");
+});
+
+
 
 app.post("/signup", (req, res) => {
   const { firstName, lastName, email, password } = req.body;  // Destructure the request body to get user details
